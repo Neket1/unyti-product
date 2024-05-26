@@ -6,6 +6,7 @@ using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class PL : MonoBehaviour
 {
@@ -20,6 +21,10 @@ public class PL : MonoBehaviour
     public PlayerMove plmove;
     public bool imm;
     public Rigidbody2D _rb;
+    [Header("level")]
+    public Velosit pos;
+    public Velosit pos_forest;
+    public bool levels;
 
     [Header("MONEY")]
     public int money;
@@ -41,7 +46,7 @@ public class PL : MonoBehaviour
 
     public float defpanel = 2f;
     public float taimer = 2f;
-    void OnCollisionEnter2D(Collision2D enemy)//если к персонажу
+   /* void OnCollisionEnter2D(Collision2D enemy)//если к персонажу
                                               //кто-то прикосается то выполняется это 
     {
         if (enemy.gameObject.tag == "death zone")
@@ -49,7 +54,7 @@ public class PL : MonoBehaviour
             full = max_HP;
             StartCoroutine(Death_zone());
         }
-    }
+    }*/
     public void toDamage_PL(int dem)
     {
         if (Dinamical_HP_bar > 0 && !imm)
@@ -58,23 +63,24 @@ public class PL : MonoBehaviour
             HP_Regenerait.setHealth(Dinamical_HP_bar);
         }
     }
-    private IEnumerator Death_zone()
+    private void Death_zone()
     {
         while (Dinamical_HP_bar > 0)
         {
             Dinamical_HP_bar -= full;
             HP_Regenerait.setHealth(Dinamical_HP_bar);
-            yield return new WaitForSeconds(5.0f);
         }
     }
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+
     }
     private void Start()
     {
-        spawnPos = controller.localPosition;
         taimer = defpanel;
+        //transform.position = pos.initValue;
+        spawnPos = pos.initValue;
 
         Dinamical_HP_bar = max_HP;
         HP_Regenerait.SetMaxHealth(Dinamical_HP_bar);
@@ -97,6 +103,11 @@ public class PL : MonoBehaviour
         if (Dinamical_HP_bar > 0)
         {
             def_panel.SetActive(false);
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 2 && levels)
+        {
+            levels = false;
+            transform.position = pos_forest.initValue;
         }
     }
     public IEnumerator DEF()

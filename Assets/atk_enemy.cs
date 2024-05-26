@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class atk_enemy : MonoBehaviour
@@ -12,6 +13,7 @@ public class atk_enemy : MonoBehaviour
     public float BUF_dams;
     public float CRT_dams;
     public Inventory inv;
+    public TextMeshProUGUI stats_item_ATK;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")// если это враг то выполняется это
@@ -55,6 +57,7 @@ public class atk_enemy : MonoBehaviour
             {
                 BUF_dams = inv.Items_ATKS.gameObject.GetComponent<efect_Item>().damag;
                 damage_enemy = Mathf.FloorToInt(BUF_dams);
+                stats_item_ATK.text = damage_enemy.ToString();
                 inv.Items_ATKS.gameObject.GetComponent<efect_Item>().times_buf = inv.Items_ATKS.gameObject.GetComponent<efect_Item>().time;
                 Debug.Log("BUF_dams: " + BUF_dams);
             }

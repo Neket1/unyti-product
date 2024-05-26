@@ -24,7 +24,6 @@ public class ATK : MonoBehaviour
     void Update()
     {
         text.text = Obg.gameObject.GetComponent<atk_enemy>().damage_enemy.ToString();
-        GetComponent<atk_enemy>().damage_enemy = Obg.gameObject.GetComponent<atk_enemy>().damage_enemy;
 
         /*if (inv.Items_ATKS.gameObject == false)
         {

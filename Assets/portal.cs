@@ -15,6 +15,7 @@ public class portal : MonoBehaviour
         if (collision.transform.tag == "Player")
         {
             hero = collision.transform.gameObject;
+            hero.GetComponent<PL>().levels = true;
         }
     }
 

@@ -21,6 +21,10 @@ public class elev : MonoBehaviour
             times = Time.deltaTime;
             rb = pl.gameObject.GetComponent<Rigidbody2D>();
         }
+        else
+        {
+
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -38,7 +42,6 @@ public class elev : MonoBehaviour
         {
             pl.Translate(new Vector2(0, tts) * times);
             rb.gravityScale = 0;
-
         }
     }
 }
