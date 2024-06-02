@@ -23,7 +23,6 @@ public class ATK : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = Obg.gameObject.GetComponent<atk_enemy>().damage_enemy.ToString();
 
         /*if (inv.Items_ATKS.gameObject == false)
         {

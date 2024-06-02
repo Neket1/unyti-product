@@ -21,6 +21,7 @@ public class PL : MonoBehaviour
     public PlayerMove plmove;
     public bool imm;
     public Rigidbody2D _rb;
+
     [Header("level")]
     public Velosit pos;
     public Velosit pos_forest;
@@ -104,11 +105,12 @@ public class PL : MonoBehaviour
         {
             def_panel.SetActive(false);
         }
+        /*
         if (SceneManager.GetActiveScene().buildIndex == 2 && levels)
         {
             levels = false;
             transform.position = pos_forest.initValue;
-        }
+        }*/
     }
     public IEnumerator DEF()
     {

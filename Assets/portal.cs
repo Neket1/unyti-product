@@ -22,7 +22,7 @@ public class portal : MonoBehaviour
     public void Next_level(int scenid)
     {
         Debug.Log("прошло успешно!!!!!!!!!");
-        hero.GetComponent<Transform>().position = new Vector3(x, y, z);
+        //hero.GetComponent<Transform>().position = new Vector3(x, y, z);
         SceneManager.LoadScene(scenid);
     }
 }

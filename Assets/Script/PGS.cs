@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class PGS : MonoBehaviour
 {
@@ -13,7 +14,12 @@ public class PGS : MonoBehaviour
     public int lifes = 3;
     public int Dinamical_HP_bar;
     public HP_reg_enemy hp_enem;
-    public TextMeshProUGUI text;
+
+    [Header("TXT_DAM")]
+    public TextMeshProUGUI text; 
+    public Animator anim;
+    public GameObject TXT;
+    public int rnd;
 
     public Rigidbody2D _rb;
     public int dams;
@@ -21,6 +27,7 @@ public class PGS : MonoBehaviour
     public float _thrust = 550f;
 
     public int dem_pl = 0;
+    public float spawnRadius; // Радиус спауна
 
     public void toDamage(int dems)
     {
@@ -28,7 +35,16 @@ public class PGS : MonoBehaviour
         {
             Dinamical_HP_bar -= dems;
             hp_enem.setHealth(Dinamical_HP_bar);
+            add_TXT_dam(dems);
         }
+    }
+    public void add_TXT_dam(int dam)
+    {
+        //Vector2 randomPosition = TXT.transform.localScale * Time.deltaTime;
+        rnd = Random.Range(1, 2);
+        text.text = dam.ToString();
+        anim.SetInteger("TXT_dam", rnd);
+            //("TXT_dam", rnd);
     }
     public void Start()
     {

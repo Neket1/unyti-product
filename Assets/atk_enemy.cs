@@ -7,6 +7,7 @@ public class atk_enemy : MonoBehaviour
 {
     public int damage_enemy;
     public int rnd;
+    public int rnd_enem;
     public Animator anim;
     public float BUF_CRT_dams;
     public bool BUF_CRT_dagems;
@@ -19,6 +20,7 @@ public class atk_enemy : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")// если это враг то выполняется это
         {
             rnd = Random.Range(0, 100);
+            rnd_enem = Random.Range(1, 2);
 
             if (inv.Items_ATKS.gameObject.GetComponent<efect_Item>().clik != 5)
             {
@@ -26,6 +28,8 @@ public class atk_enemy : MonoBehaviour
             }
             ss(rnd);
             collision.gameObject.GetComponent<PGS>().toDamage(damage_enemy);
+            collision.gameObject.GetComponent<PGS>().rnd = 0;
+            collision.gameObject.GetComponent<PGS>().rnd = rnd_enem;
 
         }
     }
@@ -64,9 +68,5 @@ public class atk_enemy : MonoBehaviour
 
         }
 
-    }
-    private void Update()
-    {
-        
     }
 }
