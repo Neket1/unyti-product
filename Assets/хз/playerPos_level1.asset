@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef96b5717a0bb444db5633d91ed988df, type: 3}
   m_Name: playerPos_level1
   m_EditorClassIdentifier: 
-  initValue: {x: 84.7, y: 10, z: -150}
+  initValue: {x: 239, y: 3, z: -150}

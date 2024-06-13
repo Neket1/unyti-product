@@ -36192,6 +36192,7 @@ MonoBehaviour:
   cam: {fileID: 138549117}
   full_damage: 0
   dem_enemi: 0
+  spawnPos: {x: 0, y: 0, z: 0}
   controller: {fileID: 864592792}
   _thrust: 550
   def_panel: {fileID: 1078768752}

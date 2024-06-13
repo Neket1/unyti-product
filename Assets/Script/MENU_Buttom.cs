@@ -24,6 +24,8 @@ public class MENU_Buttom : MonoBehaviour
     public void ReastartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        gbj.SetActive(false);
+        FindAnyObjectByType<ESC>().isOpen = false;
     }
     public void Exit_of_mainMenu(int scenid)
     {

@@ -37,7 +37,7 @@ public class PL : MonoBehaviour
     public float full_damage;
     public int dem_enemi = 0;//урон врага по игроку
 
-    private Vector3 spawnPos;//где должен заспавнится игрок после смерти
+    public Vector3 spawnPos;//где должен заспавнится игрок после смерти
 
     public Transform controller;
     public float _thrust = 5000f;
