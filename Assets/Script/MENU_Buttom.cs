@@ -6,16 +6,21 @@ using UnityEngine.SceneManagement;
 public class MENU_Buttom : MonoBehaviour
 {
     public GameObject gbj;
+    public GameObject Setings;
     private void Start()
     {
-        Time.timeScale = 0;
     }
     public void Play()
     {
-        gbj.SetActive(false); 
+        gbj.SetActive(false);
+        FindAnyObjectByType<ESC>().isOpen = false;
         Time.timeScale = 1;
     }
-
+    public void OpenSetings()
+    {
+        gbj.SetActive(false);
+        Setings.SetActive(true);
+    }
     public void ReastartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

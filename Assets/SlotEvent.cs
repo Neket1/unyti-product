@@ -103,8 +103,17 @@ public class SlotEvent : MonoBehaviour
 
         if (item.tag == "HP_reg")
         {
-            info_text_Item.text = "Может востановить здаровье игрока";
-            stats_item.text = "востанавливает только часть здоровья";
+            if (st == 2)
+            {
+                FindAnyObjectByType<PL>().Dinamical_HP_bar += 5;
+                inven.Items.Clear();
+                using_item.SetActive(false);
+                infoPanel_Item.SetActive(false);
+                Debug.Log("dadsad сделано");
+                info_text_Item.text = "Может востановить здаровье игрока";
+                stats_item.text = "востанавливает только часть здоровья"; 
+                st = 0;
+            }
         }
     }
     public void use()
@@ -113,11 +122,6 @@ public class SlotEvent : MonoBehaviour
         {
             if (inven.Items[i].gameObject.tag == "HP_reg")
             {
-                FindAnyObjectByType<PL>().Dinamical_HP_bar += 5;
-                inven.Items.Clear();
-                using_item.SetActive(false);
-                infoPanel_Item.SetActive(false);
-                Debug.Log("dadsad сделано");
             }
         }
     }

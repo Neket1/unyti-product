@@ -18,12 +18,17 @@ public class ESC : MonoBehaviour {
         {
             gameObject.GetComponent<Inventory>().ui_window.SetActive(false);
         }
+
+        if (isOpen == false)
+        {
+            Time.timeScale = 1;
+        }
     }
 
     void ToggleInventory()
     {
         isOpen = !isOpen;
-
+        Time.timeScale = 0;
         ui_window.SetActive(isOpen);
     }
 }
