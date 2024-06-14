@@ -25,6 +25,9 @@ public class CharactController2D : MonoBehaviour
 
     public UnityEvent OnLandEvent;
 
+    public Animator anim_jamp_2;
+    public GameObject anim_jamps_2;
+
     [System.Serializable]
     public class BoolEvent : UnityEvent<bool> { }
 
@@ -129,6 +132,8 @@ public class CharactController2D : MonoBehaviour
         if (jampcount > 0 && jump)
         {
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+            anim_jamps_2.SetActive(true);
+            anim_jamp_2.Play("Jamp");
             jampcount--;
         }
         if (jampcount == 0)
@@ -137,6 +142,7 @@ public class CharactController2D : MonoBehaviour
             if (m_Grounded)
             {
                 m_Grounded = false;
+                anim_jamps_2.SetActive(false);
                 jampcount = 2;
                 // Add a vertical force to the player.
             }

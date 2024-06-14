@@ -6,6 +6,8 @@ public class PlayerMove : MonoBehaviour
 {   
     public CharactController2D controller;
     public Animator anim;
+    public Animator anim_dash;
+    public GameObject anim_dashs;
 
     public float runSpeed = 40f;//��������
     public Rigidbody2D rb;
@@ -62,6 +64,8 @@ public class PlayerMove : MonoBehaviour
                 horizontalMove = Input.GetAxisRaw("Horizontal") * Dash;
                 //rb.AddForce(new Vector2(1, 0) * Dash);
                 immortals = true;
+                anim_dashs.SetActive(true);
+                anim_dash.Play("Dash");
             }
             else
             {
@@ -88,5 +92,6 @@ public class PlayerMove : MonoBehaviour
     {
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;
+        anim_dashs.SetActive(false);
     }
 }

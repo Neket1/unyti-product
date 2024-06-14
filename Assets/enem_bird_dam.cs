@@ -28,7 +28,7 @@ public class enem_bird_dam : MonoBehaviour
         {
             enems.GetComponent<atk_pl>().timer = enems.GetComponent<atk_pl>().time;
             enems.GetComponent<atk_pl>().anim.SetBool("atk_tru", false);
-            //enems.GetComponent<atk_pl>().atks = false;
+            enems.GetComponent<atk_pl>().atks = false;
             enem.GetComponent<EnemyAi>().nextWaypointDistance = 90;
             tts = false;
         }
