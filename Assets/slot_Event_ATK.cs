@@ -24,23 +24,29 @@ public class slot_Event_ATK : MonoBehaviour
         }
     }
     public void Info_pan(GameObject item)
-    {
-        info_panels.sprite = item.GetComponent<SpriteRenderer>().sprite;
-        info_panels.gameObject.SetActive(true);
+    {/*
+        if (inven.Items_ATKS != null)
+        {
+            info_panels.sprite = item.GetComponent<SpriteRenderer>().sprite;
+            info_panels.gameObject.SetActive(true);
 
-        info_text_Item.text = item.GetComponent<stats_for_damage>().info_item.ToString();
-        stats_item.text = "урон: " + item.GetComponent<stats_for_damage>().dаmage.ToString() + "\r" + "\n"
-            + "крит урон: " + item.GetComponent<stats_for_damage>().Crit_rate.ToString() + "\r" + "\n"
-            + "крит шанс: " + item.GetComponent<stats_for_damage>().Crit_Chance.ToString();
+            info_text_Item.text = item.GetComponent<stats_for_damage>().info_item.ToString();
+            stats_item.text = "урон: " + item.GetComponent<stats_for_damage>().dаmage.ToString() + "\r" + "\n"
+                + "крит урон: " + item.GetComponent<stats_for_damage>().Crit_rate.ToString() + "\r" + "\n"
+                + "крит шанс: " + item.GetComponent<stats_for_damage>().Crit_Chance.ToString();
+        }*/
     }
     public void use()
     {
-        inven.Items.Add(inven.Items_ATKS);
-        inven.items_ATK.sprite = null;
-        inven.items_ATK.gameObject.SetActive(false);
-        Debug.Log(inven.Items);
-        inven.Items_ATKS = null;
-        using_item.SetActive(false);
-        infoPanel_Item.SetActive(false);
+        if (inven.Items_ATKS != null)
+        {
+            inven.Items.Add(inven.Items_ATKS);
+            inven.items_ATK.sprite = null;
+            inven.items_ATK.gameObject.SetActive(false);
+            Debug.Log(inven.Items);
+            inven.Items_ATKS = null;
+            using_item.SetActive(false);
+            infoPanel_Item.SetActive(false);
+        }
     }
 }

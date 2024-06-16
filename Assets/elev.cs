@@ -23,14 +23,17 @@ public class elev : MonoBehaviour
         }
         else
         {
-            trig = false;
-            times = time;
-            rb.gravityScale = 3;
+
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-
+        if (collision.transform.tag != "Player")
+        {
+            trig = false;
+            times = time;
+            rb.gravityScale = 3;
+        }
     }
     private void Start()
     {

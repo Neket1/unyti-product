@@ -21,7 +21,7 @@ public class SlotEvent : MonoBehaviour
         {
             if (SlotNumber == i)
             {
-                if (inven.Items[i].gameObject.tag == "Sword")
+                if (inven.Items[i].GetComponent<Item>().tags == "Swordes")
                 {
                     infoPanel_Item.SetActive(true);
                     Info_pan(inven.Items[i]);
@@ -42,25 +42,24 @@ public class SlotEvent : MonoBehaviour
                 {
                     infoPanel_Item.SetActive(false);
                 }
+                */
 
-                if (inven.Items[i].gameObject.tag == "ARMOR")
+                if (inven.Items[i].GetComponent<Item>().tags == "BreastPlateArmor_down")
                 {
+                    infoPanel_Item.SetActive(true);
                     Info_pan(inven.Items[i]);
-                    inven.Items_N.Add(inven.Items[i]);
-                    inven.Items.Remove(inven.Items[i]);
-                    inven.items_imegas[i].sprite = null;
                 }
                 else
                 {
                     infoPanel_Item.SetActive(false);
-                }*/
+                }/*
 
-                if (inven.Items[i].gameObject.tag == "HP_reg")
+                if (inven.Items[i].tag == "HP_reg")
                 {
                     infoPanel_Item.SetActive(true);
                     Info_pan(inven.Items[i]);
                     using_item.SetActive(true);
-                }
+                }*/
             }
         }
     }
@@ -69,7 +68,7 @@ public class SlotEvent : MonoBehaviour
         info_panels.sprite = item.GetComponent<SpriteRenderer>().sprite;
         info_panels.gameObject.SetActive(true);
 
-        if (item.tag == "Sword")
+        if (item.GetComponent<Item>().tags == "Swordes")
         {
             for (int i = 0; i < inven.Items.Count; i++)
             {
@@ -95,10 +94,24 @@ public class SlotEvent : MonoBehaviour
             info_text_Item.text = "тут пока нечего не написано";
             stats_item.text = " и тутчч";
         }
-        if (item.tag == "ARMOR")
+        if (item.GetComponent<Item>().tags == "BreastPlateArmor_down")
         {
-            info_text_Item.text = "тут пока нечего не написано";
-            stats_item.text = " и тут";
+            for (int i = 0; i < inven.Items.Count; i++)
+            {
+                if (st == 2)
+                {
+                    inven.Items_N_down = item;
+                    inven.items_NEGLECT_down_image.sprite = inven.Items_N_down.GetComponent<SpriteRenderer>().sprite;
+                    inven.items_NEGLECT_down_image.gameObject.SetActive(true);
+                    infoPanel_Item.SetActive(false);
+                    inven.Items.Remove(item);
+                    inven.items_imegas[i].sprite = null;
+                    st = 0;
+                }
+                info_text_Item.text = item.GetComponent<stats_for_armor>().info_item.ToString();
+                stats_item.text = "Снижает получаемый урон на : " + item.GetComponent<stats_for_armor>().def.ToString() + "\r" + "\n"
+                    + "цена предмета: " + item.GetComponent<Item>().prise.ToString();
+            }
         }
 
         if (item.tag == "HP_reg")

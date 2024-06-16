@@ -22,7 +22,7 @@ public class PGS : MonoBehaviour
     public int rnd;
 
     public Rigidbody2D _rb;
-    public int dams;
+    public float dams;
     private Vector2 spawnPos;
     public float _thrust = 550f;
 

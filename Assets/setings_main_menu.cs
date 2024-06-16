@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
-public class Setings : MonoBehaviour
+public class setings_main_menu : MonoBehaviour
 {
     public TMP_Dropdown resDropdown;
     public TMP_Dropdown qualitDropdown;
@@ -34,9 +34,9 @@ public class Setings : MonoBehaviour
         loadSettings(curentresultionsIndex);
     }
 
-    public void SetFullscreen(bool isFullscreen) 
-    { 
-        Screen.fullScreen= isFullscreen;
+    public void SetFullscreen(bool isFullscreen)
+    {
+        Screen.fullScreen = isFullscreen;
     }
 
     public void setResolutions(int Resolutionsindex)
@@ -47,14 +47,12 @@ public class Setings : MonoBehaviour
 
     public void SetQuality(int qualityIndex)
     {
-        QualitySettings.SetQualityLevel(qualityIndex); 
+        QualitySettings.SetQualityLevel(qualityIndex);
     }
 
     public void ExitSetings()
     {
-        munu.GetComponent<MENU_Buttom>().Setings.SetActive(false);
-        Time.timeScale = 1;
-        FindAnyObjectByType<ESC>().isOpen = false;
+        munu.GetComponent<Hab_menu>().Setings.SetActive(false);
     }
 
     public void SaveSatings()
@@ -62,7 +60,7 @@ public class Setings : MonoBehaviour
         PlayerPrefs.SetInt("QualitySettingsPreference", qualitDropdown.value);
         PlayerPrefs.SetInt("ResolutionPreference", resDropdown.value);
         PlayerPrefs.SetInt("FullScreenPreference", System.Convert.ToInt32(Screen.fullScreen));
-    } 
+    }
 
     public void loadSettings(int curentresultionsIndex)
     {
@@ -93,5 +91,4 @@ public class Setings : MonoBehaviour
             Screen.fullScreen = true;
         }
     }
-
 }

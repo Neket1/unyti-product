@@ -65,23 +65,26 @@ public class ATK : MonoBehaviour
             }
         }
         //----------------------------------------------------------------------------------AXE
-        if (Input.GetKeyDown(KeyCode.C) && inv.Items_ATKS.gameObject.GetComponent<Item>().tags == "Axe")
+        if (inv.Items_ATKS != null)
         {
-            if (Obg.gameObject.GetComponent<atk_enemy>().rnd > 0 && Obg.gameObject.GetComponent<atk_enemy>().rnd < inv.Items_ATKS.gameObject.GetComponent<stats_for_damage>().Crit_Chance)
+            if (Input.GetKeyDown(KeyCode.C) && inv.Items_ATKS.gameObject.GetComponent<Item>().tags == "Axe")
             {
-                dams = dams * (1 + (inv.Items_ATKS.gameObject.GetComponent<stats_for_damage>().Crit_rate / 100));
-                Debug.Log("cof: " + 1 + (inv.Items_ATKS.gameObject.GetComponent<stats_for_damage>().Crit_rate / 100) + "  dams: " + dams);
+                if (Obg.gameObject.GetComponent<atk_enemy>().rnd > 0 && Obg.gameObject.GetComponent<atk_enemy>().rnd < inv.Items_ATKS.gameObject.GetComponent<stats_for_damage>().Crit_Chance)
+                {
+                    dams = dams * (1 + (inv.Items_ATKS.gameObject.GetComponent<stats_for_damage>().Crit_rate / 100));
+                    Debug.Log("cof: " + 1 + (inv.Items_ATKS.gameObject.GetComponent<stats_for_damage>().Crit_rate / 100) + "  dams: " + dams);
+                }
+                Obg.gameObject.GetComponent<atk_enemy>().damage_enemy = inv.Items_ATKS.gameObject.GetComponent<stats_for_damage>().dàmage;
+                dams = Obg.gameObject.GetComponent<atk_enemy>().damage_enemy;
+                Obg.SetActive(true);
+                Obg.GetComponent<SpriteRenderer>().sprite = FindObjectOfType<Inventory>().items_ATK.sprite;
+                anim.SetBool("IsClick", true);
             }
-            Obg.gameObject.GetComponent<atk_enemy>().damage_enemy = inv.Items_ATKS.gameObject.GetComponent<stats_for_damage>().dàmage;
-            dams = Obg.gameObject.GetComponent<atk_enemy>().damage_enemy;
-            Obg.SetActive(true);
-            Obg.GetComponent<SpriteRenderer>().sprite = FindObjectOfType<Inventory>().items_ATK.sprite;
-            anim.SetBool("IsClick", true);
-        }
-        else if (Input.GetKeyUp(KeyCode.C) && inv.Items_ATKS.gameObject.GetComponent<Item>().tags == "Axe")
-        {
-            Obg.SetActive(false);
-            anim.SetBool("IsClick", false);
+            else if (Input.GetKeyUp(KeyCode.C) && inv.Items_ATKS.gameObject.GetComponent<Item>().tags == "Axe")
+            {
+                Obg.SetActive(false);
+                anim.SetBool("IsClick", false);
+            }
         }
         /*
         if (inv.Items_ATKS.gameObject.GetComponent<efect_Item>().cliks == 5)

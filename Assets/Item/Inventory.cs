@@ -15,9 +15,10 @@ public class Inventory : MonoBehaviour
     //list of items Piced Up
     public List<GameObject> Items = new List<GameObject>();
     public List<GameObject> info_Panel = new List<GameObject>();
-    public List<GameObject> Items_N = new List<GameObject>();
     public List<GameObject> Items_ARTS = new List<GameObject>();
     public GameObject Items_ATKS;
+    public GameObject Items_N_up;
+    public GameObject Items_N_down;
 
     public bool isOpen;
 
@@ -31,12 +32,20 @@ public class Inventory : MonoBehaviour
 
     public Image[] items_imegas;
     public Image[] info_panels;
-    public Image[] items_NEGLECT;
     public Image[] items_ART;
     public Image items_ATK;
+    public Image items_NEGLECT_up_image;
+    public Image items_NEGLECT_down_image;
+
+    [Header("Info STATS")]
+    public TextMeshProUGUI stats_item_def;
+    public TextMeshProUGUI stats_item_atk;
+    public TextMeshProUGUI stats_item_crtD;
+    public TextMeshProUGUI stats_item_crtR;
 
     public void Start()
     {
+        stats_item_def.text = FindObjectOfType<PL>().def.ToString();
         HideAlls();
         items_ATK.gameObject.SetActive(false);
     }
@@ -47,6 +56,25 @@ public class Inventory : MonoBehaviour
             ToggleInventory();
         }
         UpdateUI();
+
+
+        if (Items_N_up != null)
+        {
+            stats_item_def.text = FindObjectOfType<PL>().def.ToString();
+        }
+
+        if (Items_N_down != null)
+        {
+            stats_item_def.text = FindObjectOfType<PL>().def.ToString();
+        }
+        /*
+        if (Items_ATKS != null)
+        {
+            stats_item_atk.text = Items_ATKS.GetComponent<stats_for_damage>().dàmage.ToString();
+            stats_item_crtD.text = Items_ATKS.GetComponent<stats_for_damage>().Crit_rate.ToString();
+            stats_item_crtR.text = Items_ATKS.GetComponent<stats_for_damage>().Crit_Chance.ToString();
+        }
+        */
     }
     void ToggleInventory()
     {
@@ -59,7 +87,7 @@ public class Inventory : MonoBehaviour
     {
         Items.Add(item);
         UpdateUI();
-    }
+    }/*
     //___________________________________________________________________//
     //                                ATK
     public void Eqp_ATK(GameObject item)
@@ -74,7 +102,7 @@ public class Inventory : MonoBehaviour
     {
         Items_N.Add(item);
         UpdateUI();
-    }
+    }*/
     //____________________________________________________________________//
     //                                ART
     public void Eqp_ART(GameObject item)
@@ -90,12 +118,12 @@ public class Inventory : MonoBehaviour
         {
             items_imegas[i].sprite = Items[i].GetComponent<SpriteRenderer>().sprite;
             items_imegas[i].gameObject.SetActive(true);
-        }
+        }/*
         //_____________ATK
-        /*items_ATK.sprite = Items_ATKS.GetComponent<SpriteRenderer>().sprite;
+        items_ATK.sprite = Items_ATKS.GetComponent<SpriteRenderer>().sprite;
         items_ATK.gameObject.SetActive(true);
         infoPanel_Item.SetActive(false);
-        info_Panel.Clear();*/
+        info_Panel.Clear();
         //_____________ARMOR
         for (int i = 0; i < Items_N.Count; i++)
         {
@@ -106,7 +134,7 @@ public class Inventory : MonoBehaviour
                 infoPanel_Item.SetActive(false);
                 info_Panel.Clear();
             }
-        }
+        }*/
         //_____________ART
         for (int i = 0; i < Items_ARTS.Count; i++)
         {
@@ -127,9 +155,10 @@ public class Inventory : MonoBehaviour
     void HideAlls()
     {
         foreach (var i in items_ART) { i.gameObject.SetActive(false); }
-        foreach (var i in items_NEGLECT) { i.gameObject.SetActive(false); }
         //foreach (var i in items_ATK) { i.gameObject.SetActive(false); }
         items_ATK.gameObject.SetActive(false);
+        items_NEGLECT_down_image.gameObject.SetActive(false);
+        items_NEGLECT_up_image.gameObject.SetActive(false);
         foreach (var i in info_panels) { i.gameObject.SetActive(false); }
     }
 }

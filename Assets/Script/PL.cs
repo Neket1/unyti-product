@@ -16,6 +16,9 @@ public class PL : MonoBehaviour
     public int  Dinamical_HP_bar;
     private int full = 0;//она предназначена для
                          //смертельной зоны которая сразу убивает игрока
+    [Header("Def")]
+    public float def;
+    public Inventory inv;
 
     public HP_Regenerait HP_Regenerait;// привязка к скрипту hp_bara
     public PlayerMove plmove;
@@ -47,20 +50,18 @@ public class PL : MonoBehaviour
 
     public float defpanel = 2f;
     public float taimer = 2f;
-   /* void OnCollisionEnter2D(Collision2D enemy)//если к персонажу
-                                              //кто-то прикосается то выполняется это 
+    public void toDamage_PL(float dem)
     {
-        if (enemy.gameObject.tag == "death zone")
+        /*
+        if (inv.Items_N_down != null)
         {
-            full = max_HP;
-            StartCoroutine(Death_zone());
-        }
-    }*/
-    public void toDamage_PL(int dem)
-    {
+            float new_def;
+            new_def = def - inv.Items_N_down.gameObject.GetComponent<stats_for_armor>().def;
+            def = new_def;
+        }*/
         if (Dinamical_HP_bar > 0 && !imm)
         {
-            Dinamical_HP_bar -= dem;
+            Dinamical_HP_bar -= Mathf.FloorToInt(dem * def);
             HP_Regenerait.setHealth(Dinamical_HP_bar);
         }
     }
@@ -75,12 +76,10 @@ public class PL : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-
     }
     private void Start()
     {
         taimer = defpanel;
-        //transform.position = pos.initValue;
         spawnPos = pos.initValue;
 
         Dinamical_HP_bar = max_HP;
@@ -90,7 +89,8 @@ public class PL : MonoBehaviour
     {
         HP_Regenerait.setHealth(Dinamical_HP_bar);
         imm = plmove.immortals;
-        money_text.text = money.ToString(); 
+        money_text.text = money.ToString();
+
         if (Dinamical_HP_bar <= 0)
         {
             anim.SetBool("def", true);
@@ -105,12 +105,6 @@ public class PL : MonoBehaviour
         {
             def_panel.SetActive(false);
         }
-        /*
-        if (SceneManager.GetActiveScene().buildIndex == 2 && levels)
-        {
-            levels = false;
-            transform.position = pos_forest.initValue;
-        }*/
     }
     public IEnumerator DEF()
     {
@@ -139,6 +133,5 @@ public class PL : MonoBehaviour
         SceneManager.LoadScene(scenid);
         gameObject.SetActive(false);
         def_panel.SetActive(false);
-        //Application.Quit();
     }
 }
