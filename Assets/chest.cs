@@ -48,7 +48,6 @@ public class chest : MonoBehaviour
             { 
                 if (Input.GetMouseButtonUp(0) == Items[i])
                 {
-                    Debug.Log("cc");
                    
                     INVEN.Items.Add(Items[i]);
                     INVEN.items_imegas[i].sprite = Items[i].GetComponent<SpriteRenderer>().sprite;

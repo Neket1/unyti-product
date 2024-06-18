@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class enem_bird_dam : MonoBehaviour
@@ -22,6 +23,8 @@ public class enem_bird_dam : MonoBehaviour
             tts = true;
         }
     }
+
+
     private void Update()
     {
         if (tts == true)

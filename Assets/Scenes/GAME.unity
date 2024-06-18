@@ -23578,7 +23578,7 @@ MonoBehaviour:
   speed: 0
   hero: {fileID: 0}
   anim: {fileID: 885058719}
-  enem: {fileID: 0}
+  enem: {fileID: 664212230}
 --- !u!1 &441741956
 GameObject:
   m_ObjectHideFlags: 0
@@ -23762,7 +23762,7 @@ RectTransform:
   m_Father: {fileID: 1854514469}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -0.0000019073486, y: 0.0000029802322}
   m_SizeDelta: {x: -0.253, y: -0.321}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -32817,8 +32817,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b83a50c992207e547af47fdb3bb65413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enem: {fileID: 398708644}
-  enems: {fileID: 0}
+  enem: {fileID: 664212230}
+  enems: {fileID: 398708644}
   tts: 0
 --- !u!58 &650498836
 CircleCollider2D:
@@ -33197,7 +33197,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &664212231
 Transform:
   m_ObjectHideFlags: 0
@@ -33296,7 +33296,7 @@ MonoBehaviour:
   rnd: 0
   _rb: {fileID: 664212233}
   dams: 0
-  _thrust: 550
+  _thrust: 0
   dem_pl: 0
   spawnRadius: 0
 --- !u!114 &664212235
@@ -33313,7 +33313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1869469657}
   enemyGXF: {fileID: 885058718}
-  speed: 200
+  speed: 1
   nextWaypointDistance: 3
 --- !u!61 &664212236
 BoxCollider2D:
@@ -35162,8 +35162,8 @@ RectTransform:
   m_Children:
   - {fileID: 1284533681}
   - {fileID: 1147120915}
-  - {fileID: 1390587116}
   - {fileID: 819618249}
+  - {fileID: 1390587116}
   m_Father: {fileID: 1759896881}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -35632,7 +35632,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 22.5, y: -70}
+  m_AnchoredPosition: {x: 22.5, y: -50}
   m_SizeDelta: {x: 45, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &819618250
@@ -35682,8 +35682,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 7
-  m_fontSizeBase: 7
+  m_fontSize: 6.5
+  m_fontSizeBase: 6.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -39652,8 +39652,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 7
-  m_fontSizeBase: 7
+  m_fontSize: 6.5
+  m_fontSizeBase: 6.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -40054,7 +40054,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1188426274
 RectTransform:
   m_ObjectHideFlags: 0
@@ -41305,8 +41305,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 7
-  m_fontSizeBase: 7
+  m_fontSize: 6.5
+  m_fontSizeBase: 6.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -42519,7 +42519,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 22.5, y: -50}
+  m_AnchoredPosition: {x: 22.5, y: -70}
   m_SizeDelta: {x: 45, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1390587117
@@ -42570,8 +42570,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 7
-  m_fontSizeBase: 7
+  m_fontSize: 6.5
+  m_fontSizeBase: 6.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -45529,11 +45529,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1117240535947076216, guid: dfb99de79d1307c41b992d8a7be5c924, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1117240535947076216, guid: dfb99de79d1307c41b992d8a7be5c924, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2274179015603961542, guid: dfb99de79d1307c41b992d8a7be5c924, type: 3}
       propertyPath: m_LocalPosition.x
@@ -45553,7 +45553,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4382582272349513567, guid: dfb99de79d1307c41b992d8a7be5c924, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4589684144476652247, guid: dfb99de79d1307c41b992d8a7be5c924, type: 3}
       propertyPath: m_Radius
@@ -47684,6 +47684,7 @@ MonoBehaviour:
   BUF_CRT_dagems: 0
   BUF_dams: 0
   CRT_dams: 0
+  tags: 
   inv: {fileID: 864592784}
   stats_item_ATK: {fileID: 797754407}
 --- !u!50 &1917022345

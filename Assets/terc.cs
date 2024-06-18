@@ -8,7 +8,7 @@ public class terc : MonoBehaviour
     private void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("pers");
-        Debug.Log(objs.Length + "dsadsa");
+        //Debug.Log(objs.Length + "dsadsa");
         if (objs.Length > 1)
         {
             Destroy(this.gameObject);

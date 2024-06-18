@@ -63,35 +63,35 @@ public class ATK : MonoBehaviour
                 Debug.Log("ANIM_IsClick: " + anim.GetBool("IsClick"));
                 Debug.Log("ANIM_GetCurrent: " + anim.GetCurrentAnimatorStateInfo(0).IsName("idel"));
             }
-        }
         //----------------------------------------------------------------------------------AXE
-        if (inv.Items_ATKS != null)
-        {
-            if (Input.GetKeyDown(KeyCode.C) && inv.Items_ATKS.gameObject.GetComponent<Item>().tags == "Axe")
+            if (inv.Items_ATKS.gameObject.GetComponent<Item>().tags == "Axe")
             {
-                if (Obg.gameObject.GetComponent<atk_enemy>().rnd > 0 && Obg.gameObject.GetComponent<atk_enemy>().rnd < inv.Items_ATKS.gameObject.GetComponent<stats_for_damage>().Crit_Chance)
+                if (inv.Items_ATKS.gameObject.GetComponent<Buf_of_AXE>().bleeding == 5)
                 {
-                    dams = dams * (1 + (inv.Items_ATKS.gameObject.GetComponent<stats_for_damage>().Crit_rate / 100));
-                    Debug.Log("cof: " + 1 + (inv.Items_ATKS.gameObject.GetComponent<stats_for_damage>().Crit_rate / 100) + "  dams: " + dams);
+                    inv.Items_ATKS.gameObject.GetComponent<Buf_of_AXE>().buf = true;
+                    inv.Items_ATKS.gameObject.GetComponent<Buf_of_AXE>().times_buf -= Time.deltaTime;
+                    activ = true;
+                    FindObjectOfType<PGS>().Bladings();
+                    if (inv.Items_ATKS.gameObject.GetComponent<Buf_of_AXE>().times_buf <= 0)
+                    {
+
+                        inv.Items_ATKS.gameObject.GetComponent<Buf_of_AXE>().buf = false;
+                        inv.Items_ATKS.gameObject.GetComponent<Buf_of_AXE>().bleeding = 0;
+                        inv.Items_ATKS.gameObject.GetComponent<Buf_of_AXE>().times_buf = 0;
+                        activ = false;
+                    }
                 }
-                Obg.gameObject.GetComponent<atk_enemy>().damage_enemy = inv.Items_ATKS.gameObject.GetComponent<stats_for_damage>().dàmage;
-                dams = Obg.gameObject.GetComponent<atk_enemy>().damage_enemy;
-                Obg.SetActive(true);
-                Obg.GetComponent<SpriteRenderer>().sprite = FindObjectOfType<Inventory>().items_ATK.sprite;
-                anim.SetBool("IsClick", true);
-            }
-            else if (Input.GetKeyUp(KeyCode.C) && inv.Items_ATKS.gameObject.GetComponent<Item>().tags == "Axe")
-            {
-                Obg.SetActive(false);
-                anim.SetBool("IsClick", false);
+                if (Input.GetKey(KeyCode.C))
+                {
+                    Obg.SetActive(true);
+                    Obg.GetComponent<SpriteRenderer>().sprite = FindObjectOfType<Inventory>().items_ATK.sprite;
+                    anim.Play("Attack");
+                }
+                if (anim.GetCurrentAnimatorStateInfo(0).IsName("idel"))
+                {
+                    Obg.SetActive(false);
+                }
             }
         }
-        /*
-        if (inv.Items_ATKS.gameObject.GetComponent<efect_Item>().cliks == 5)
-        {
-            Obg.gameObject.GetComponent<atk_enemy>().damage_enemy = inv.Items_ATKS.gameObject.GetComponent<stats_for_damage>().dàmage * 2;
-            dams = Obg.gameObject.GetComponent<atk_enemy>().damage_enemy;
-            inv.Items_ATKS.gameObject.GetComponent<efect_Item>().cliks = 0;
-        }*/
     }
 }

@@ -67,14 +67,12 @@ public class Inventory : MonoBehaviour
         {
             stats_item_def.text = FindObjectOfType<PL>().def.ToString();
         }
-        /*
         if (Items_ATKS != null)
         {
             stats_item_atk.text = Items_ATKS.GetComponent<stats_for_damage>().dàmage.ToString();
             stats_item_crtD.text = Items_ATKS.GetComponent<stats_for_damage>().Crit_rate.ToString();
             stats_item_crtR.text = Items_ATKS.GetComponent<stats_for_damage>().Crit_Chance.ToString();
         }
-        */
     }
     void ToggleInventory()
     {

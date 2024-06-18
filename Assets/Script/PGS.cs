@@ -15,6 +15,8 @@ public class PGS : MonoBehaviour
     public int Dinamical_HP_bar;
     public HP_reg_enemy hp_enem;
 
+    
+
     [Header("TXT_DAM")]
     public TextMeshProUGUI text; 
     public Animator anim;
@@ -38,6 +40,12 @@ public class PGS : MonoBehaviour
             add_TXT_dam(dems);
         }
     }
+
+    public void Bladings()
+    {
+        Dinamical_HP_bar -= FindObjectOfType<Buf_of_AXE>().DEMG_bleeding;
+        Debug.Log("PGS: sdasdsadasdasd");
+    }
     public void add_TXT_dam(int dam)
     {
         //Vector2 randomPosition = TXT.transform.localScale * Time.deltaTime;
@@ -54,7 +62,12 @@ public class PGS : MonoBehaviour
         hp_enem.HP = Dinamical_HP_bar.ToString();
     }
     private void Update()
-    {
+    {/*
+        if(gameObject.GetComponent<Buf_of_AXE>().buf == true) 
+        {
+            Bladings();
+            Debug.Log("dsajduashdasdsadas");
+        }*/
         hp_enem.setHealth(Dinamical_HP_bar);
         if (Dinamical_HP_bar <= 0)
         {

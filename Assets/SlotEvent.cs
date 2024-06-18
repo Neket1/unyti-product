@@ -21,45 +21,8 @@ public class SlotEvent : MonoBehaviour
         {
             if (SlotNumber == i)
             {
-                if (inven.Items[i].GetComponent<Item>().tags == "Swordes")
-                {
-                    infoPanel_Item.SetActive(true);
-                    Info_pan(inven.Items[i]);
-                }
-                else
-                {
-                    infoPanel_Item.SetActive(false);
-                }
-                /*
-                if (inven.Items[i].gameObject.tag == "ART")
-                {
-                    Info_pan(inven.Items[i]);
-                    inven.Items_ARTS.Add(inven.Items[i]);
-                    inven.Items.Remove(inven.Items[i]);
-                    inven.items_imegas[i].sprite = null;
-                }
-                else
-                {
-                    infoPanel_Item.SetActive(false);
-                }
-                */
-
-                if (inven.Items[i].GetComponent<Item>().tags == "BreastPlateArmor_down")
-                {
-                    infoPanel_Item.SetActive(true);
-                    Info_pan(inven.Items[i]);
-                }
-                else
-                {
-                    infoPanel_Item.SetActive(false);
-                }/*
-
-                if (inven.Items[i].tag == "HP_reg")
-                {
-                    infoPanel_Item.SetActive(true);
-                    Info_pan(inven.Items[i]);
-                    using_item.SetActive(true);
-                }*/
+                infoPanel_Item.SetActive(true);
+                Info_pan(inven.Items[i]);
             }
         }
     }
@@ -68,7 +31,7 @@ public class SlotEvent : MonoBehaviour
         info_panels.sprite = item.GetComponent<SpriteRenderer>().sprite;
         info_panels.gameObject.SetActive(true);
 
-        if (item.GetComponent<Item>().tags == "Swordes")
+        if (item.GetComponent<Item>().tag == "Sword")
         {
             for (int i = 0; i < inven.Items.Count; i++)
             {

@@ -52,13 +52,6 @@ public class PL : MonoBehaviour
     public float taimer = 2f;
     public void toDamage_PL(float dem)
     {
-        /*
-        if (inv.Items_N_down != null)
-        {
-            float new_def;
-            new_def = def - inv.Items_N_down.gameObject.GetComponent<stats_for_armor>().def;
-            def = new_def;
-        }*/
         if (Dinamical_HP_bar > 0 && !imm)
         {
             Dinamical_HP_bar -= Mathf.FloorToInt(dem * def);
