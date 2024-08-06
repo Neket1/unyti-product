@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/GAME.unity
     guid: bd9b8a90d2352dc469bb411e9ef2ef2c
   - enabled: 1
-    path: Assets/Scenes/shop.unity
-    guid: 155e579acdbaa5c458e04661c1084860
-  - enabled: 1
     path: Assets/Scenes/foret.unity
     guid: 00b7ce07667ca5043bc0b46c467fcd9d
+  - enabled: 1
+    path: Assets/Scenes/shop.unity
+    guid: 155e579acdbaa5c458e04661c1084860
   - enabled: 1
     path: "Assets/Scenes/GAME \u21162.unity"
     guid: c9316536ffe834a4e8916790adaf0430

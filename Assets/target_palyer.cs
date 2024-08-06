@@ -21,13 +21,13 @@ public class target_palyer : MonoBehaviour
             trig = true;
             targets = collision.gameObject.transform;// передача обьекта с колиизии нт таргетс
             enem.GetComponent<EnemyAi>().target = targets;//тут передача на ИИ
-            box.enabled = false;// после этого он просто выключается
+            //box.enabled = false;// после этого он просто выключается
             rb = enem.GetComponent<Rigidbody2D>();
         }
     }
     private void Start()
     {
-        box.enabled= true;// со старта включен
+        //box.enabled= true;// со старта включен
     }
     private void Update()
     {

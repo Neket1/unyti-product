@@ -9,6 +9,7 @@ public class EnemySpawn : MonoBehaviour
     public int maxEnemies = 5; // Максимальное количество врагов
     public float spawnRadius; // Радиус спауна
     public Collider2D col;
+    public Vector3 sp_enem;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
@@ -20,11 +21,11 @@ public class EnemySpawn : MonoBehaviour
             for (int i = 0; i < enemyCount; i++)
             {
                 spawnRadius = Random.Range(1f, 3f);
-                Vector2 randomPosition = transform.position * spawnRadius;
+                Vector2 randomPosition = sp_enem;
                 Instantiate(enemyPrefab, randomPosition, Quaternion.identity);
                 GetComponent<ToggleObjectOnAllDisabled>().objects.Add(enemyPrefab);
             }
-            col.gameObject.SetActive(false);
+            //col.gameObject.SetActive(false);
         }
     }
 }
